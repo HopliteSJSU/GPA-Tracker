@@ -96,7 +96,10 @@
 			isa = PBXGroup;
 			children = (
 				22F09762220BDD0E009881F8 /* AppDelegate.swift */,
-				22F09764220BDD0E009881F8 /* ViewController.swift */,
+				22F09792220BDDE8009881F8 /* Controller */,
+				22F09791220BDDDD009881F8 /* View */,
+				22F09793220BDDFD009881F8 /* View Model */,
+				22F09790220BDDD6009881F8 /* Model */,
 				22F09769220BDD10009881F8 /* Assets.xcassets */,
 				22F0976B220BDD10009881F8 /* LaunchScreen.storyboard */,
 				22F0976E220BDD10009881F8 /* Info.plist */,
@@ -120,6 +123,35 @@
 				22F09784220BDD11009881F8 /* Info.plist */,
 			);
 			path = "GPA TrackerUITests";
+			sourceTree = "<group>";
+		};
+		22F09790220BDDD6009881F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		22F09791220BDDDD009881F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		22F09792220BDDE8009881F8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				22F09764220BDD0E009881F8 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		22F09793220BDDFD009881F8 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
