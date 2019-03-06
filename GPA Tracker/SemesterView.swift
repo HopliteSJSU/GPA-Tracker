@@ -19,6 +19,11 @@ class SemesterView: UIView {
         super.init(frame: defaultRect)
         self.backgroundColor = .white
         self.layer.cornerRadius = 30
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowOpacity = 0.6
+        self.layer.shadowRadius = 12
+        // TODO: Adjust the size and padding of elements, so they look nice on all screens
+        // TODO: Adjust font styles
         
         semesterName.placeholder = "Title"
 
@@ -28,6 +33,7 @@ class SemesterView: UIView {
         // TODO: Add header to the table
         tableOfClasses.numberOfRows(inSection: 3)
         
+        // TODO: newClassButton should be in the footer of the table
         newClassButton.setTitle("+ Add class", for: UIControl.State.normal)
         newClassButton.setTitleColor(.black, for: UIControl.State.normal)
         
