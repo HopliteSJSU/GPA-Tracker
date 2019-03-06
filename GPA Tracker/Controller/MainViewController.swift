@@ -13,7 +13,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(displayP3Red: 253 / 255, green: 219 / 255, blue: 93 / 255, alpha: 1.0)
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let semester = SemesterView()
+        self.view.addSubview(semester)
     }
 
 

@@ -19,6 +19,7 @@ class SemesterView: UIView {
         super.init(frame: defaultRect)
         self.backgroundColor = .white
         self.layer.cornerRadius = 30
+        // TODO: Shadow should be lighter
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.layer.shadowOpacity = 0.6
         self.layer.shadowRadius = 12
