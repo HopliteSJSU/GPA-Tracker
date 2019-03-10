@@ -27,16 +27,22 @@ class SemesterView: UIView {
         // TODO: Adjust font styles
         
         semesterName.placeholder = "Title"
+        semesterName.font = UIFont.systemFont(ofSize: 28, weight: UIFont.Weight.semibold)
 
         semesterGPA.text = "GPA: --"
         semesterGPA.textAlignment = .left
+        semesterGPA.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.semibold)
         
         // TODO: Add header to the table
         tableOfClasses.numberOfRows(inSection: 3)
         
         // TODO: newClassButton should be in the footer of the table
+        
+        // Set styles for button 'Add class'
         newClassButton.setTitle("+ Add class", for: UIControl.State.normal)
         newClassButton.setTitleColor(.black, for: UIControl.State.normal)
+        newClassButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
+        newClassButton.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: UIFont.Weight.semibold)
         
         self.addSubview(semesterName)
         self.addSubview(semesterGPA)
