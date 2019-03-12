@@ -8,11 +8,11 @@
 
 import UIKit
 
-let defaultRect = CGRect(x: 30, y: 100, width: 350, height: 700)
-let semesterName = UITextField(frame: CGRect(x: 20, y: 10, width: 300, height: 30))
-let semesterGPA = UILabel(frame: CGRect(x: 20, y: 30, width: 300, height: 40))
-let tableOfClasses = UITableView(frame: CGRect(x: 20, y: 70, width: 320, height: 400))
-let newClassButton = UIButton(frame: CGRect(x: 20, y: 470, width: 320, height: 50))
+let defaultRect = CGRect(x: 19, y: 121, width: 337, height: 601)
+let semesterName = UITextField(frame: CGRect(x: 16, y: 12, width: 320, height: 34))
+let semesterGPA = UILabel(frame: CGRect(x: 16, y: 54, width: 320, height: 22 ))
+let tableOfClasses = UITableView(frame: CGRect(x: 16, y: 107, width: 320, height: 400))
+let newClassButton = UIButton(frame: CGRect(x: 20, y: 300, width: 300, height: 65))
 
 class SemesterView: UIView {
     public override init(frame: CGRect = defaultRect) {
@@ -33,8 +33,26 @@ class SemesterView: UIView {
         semesterGPA.textAlignment = .left
         semesterGPA.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.semibold)
         
-        // TODO: Add header to the table
-        tableOfClasses.numberOfRows(inSection: 3)
+        // Header to the table
+        let headerView = UIView(frame: CGRect(x: 0, y: 50, width: 324, height: 22))
+        let classNameLabel = UILabel(frame: CGRect(x: 0, y: 5, width:150, height:22))
+        classNameLabel.text = "Class name"
+        classNameLabel.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.regular)
+        
+        let weightLabel = UILabel(frame: CGRect(x: 192, y: 5, width:54, height:22))
+        weightLabel.text = "Weight"
+        weightLabel.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.regular)
+        
+        let gradeLabel = UILabel(frame: CGRect(x: 266, y: 5, width:47, height:22))
+        gradeLabel.text = "Grade"
+        gradeLabel.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.regular)
+        
+        headerView.addSubview(classNameLabel)
+        headerView.addSubview(weightLabel)
+        headerView.addSubview(gradeLabel)
+        
+        tableOfClasses.numberOfRows(inSection: 1)
+        tableOfClasses.tableHeaderView = headerView
         
         // TODO: newClassButton should be in the footer of the table
         
@@ -43,6 +61,8 @@ class SemesterView: UIView {
         newClassButton.setTitleColor(.black, for: UIControl.State.normal)
         newClassButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         newClassButton.titleLabel?.font = UIFont.systemFont(ofSize: 28, weight: UIFont.Weight.semibold)
+        
+        //tableOfClasses.tableFooterView = newClassButton
         
         self.addSubview(semesterName)
         self.addSubview(semesterGPA)
