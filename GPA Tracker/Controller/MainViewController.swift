@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class MainViewController: UIViewController {
 
@@ -16,6 +17,10 @@ class MainViewController: UIViewController {
         
         let semester = SemesterView()
         self.view.addSubview(semester)
+        
+        semester.snp.makeConstraints { (make) -> Void in
+            make.edges.equalTo(self.view).inset(UIEdgeInsets(top: 121, left: 19, bottom: 90, right: 19))
+        }
     }
 
 
