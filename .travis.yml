@@ -1,0 +1,9 @@
+language: swift
+osx_image: xcode10.1
+
+before_install:
+- pod update
+script:
+- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace 'GPA Tracker.xcworkspace' -scheme 'GPA Tracker' -sdk iphonesimulator12.1 -destination "OS=12.1,name=iPhone X" | xcpretty
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -J 'GPA Tracker'
