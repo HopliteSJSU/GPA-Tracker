@@ -23,14 +23,14 @@ class TableView :UITableView {
     var classNameLabel: UILabel!
     var weightLabel: UILabel!
     var gradeLabel: UILabel!
-    var addClassButton: UIButton!
+    //var addClassButton: UIButton!
     
     override init(frame: CGRect = CGRect.zero, style: UITableView.Style = UITableView.Style.plain) {
         super.init(frame: CGRect.zero, style: UITableView.Style.plain)
         self.numberOfRows(inSection: 6)
         setupTableHeader()
-        
-        addClassButton = UIButton()
+        self.rowHeight = 65
+        /*addClassButton = UIButton()
         addClassButton.setTitle("+ Add class", for: UIControl.State.normal)
         addClassButton.setTitleColor(.black, for: UIControl.State.normal)
         addClassButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
@@ -39,12 +39,12 @@ class TableView :UITableView {
         addClassButton.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(addClassButtonHeight)
             make.width.equalTo(self)
-        }
+        }*/
 
     }
     
     func setupTableHeader() {
-        headerView = UIView()
+        headerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: tableHeaderHeight))
         
         classNameLabel = UILabel()
         classNameLabel.text = "Class name"
@@ -78,10 +78,10 @@ class TableView :UITableView {
         }
         
         self.tableHeaderView = headerView
-        headerView.snp.makeConstraints { (make) -> Void in
+        /*headerView.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(tableHeaderHeight)
             make.width.equalTo(self)
-        }
+        }*/
     }
     
     required init?(coder aDecoder: NSCoder) {
