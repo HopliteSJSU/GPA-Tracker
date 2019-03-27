@@ -16,8 +16,9 @@ let bgColor = UIColor(displayP3Red: 253 / 255, green: 219 / 255, blue: 93 / 255,
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var semesterView: UIView!
     var tableOfClasses: UITableView!
+    //var addClassButton: UIButton!
     
-    private let courses = ["CS 147", "CS 149", "MATH 123", "FR 101"]
+    private var courses = ["CS 147", "CS 149", "MATH 123", "FR 101"]
     let cellReuseIdentifier = "cell"
     
     
@@ -32,6 +33,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableOfClasses.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableOfClasses.delegate = self
         tableOfClasses.dataSource = self
+        
+        //createButton()
+        //tableOfClasses.tableFooterView = addClassButton
+        /*courses.insert("+ Add class", at: 0)
+        //var indexPath: IndexPath = IndexPath(row: 0, section: 0)
+        tableOfClasses.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)*/
         
     }
     
@@ -60,6 +67,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             make.bottom.equalTo(semester).offset(-20)*/
         }
     }
+    
+    /*func createButton() {
+        addClassButton = UIButton()
+        addClassButton.setTitle("+ Add class", for: UIControl.State.normal)
+        addClassButton.setTitleColor(.black, for: UIControl.State.normal)
+        addClassButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
+        addClassButton.titleLabel?.font = header1Font
+    }*/
     
     func setupSemesterView() {
         semesterView = SemesterView()

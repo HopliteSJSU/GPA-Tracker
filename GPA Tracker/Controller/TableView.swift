@@ -23,20 +23,20 @@ class TableView :UITableView {
     var classNameLabel: UILabel!
     var weightLabel: UILabel!
     var gradeLabel: UILabel!
-    //var addClassButton: UIButton!
+    var addClassButton: UIButton!
     
     override init(frame: CGRect = CGRect.zero, style: UITableView.Style = UITableView.Style.plain) {
         super.init(frame: CGRect.zero, style: UITableView.Style.plain)
         self.numberOfRows(inSection: 6)
         setupTableHeader()
         self.rowHeight = 65
-        /*addClassButton = UIButton()
+        addClassButton = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 65))
         addClassButton.setTitle("+ Add class", for: UIControl.State.normal)
         addClassButton.setTitleColor(.black, for: UIControl.State.normal)
         addClassButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         addClassButton.titleLabel?.font = header1Font
         self.tableFooterView = addClassButton
-        addClassButton.snp.makeConstraints { (make) -> Void in
+        /*addClassButton.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(addClassButtonHeight)
             make.width.equalTo(self)
         }*/
