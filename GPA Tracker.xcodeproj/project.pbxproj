@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01343975043BB76C3618F39A /* Pods_GPA_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF299985BE57DD2FCABA8FA /* Pods_GPA_Tracker.framework */; };
+		224FBCDE223D92DC00DB1A7E /* SemesterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FBCDD223D92DC00DB1A7E /* SemesterModel.swift */; };
 		22F09763220BDD0E009881F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F09762220BDD0E009881F8 /* AppDelegate.swift */; };
 		22F09765220BDD0E009881F8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F09764220BDD0E009881F8 /* MainViewController.swift */; };
 		22F0976A220BDD10009881F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F09769220BDD10009881F8 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		09109C3BDF65AFC3FC69C9A4 /* Pods-GPA Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPA Tracker/Pods-GPA Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		224FBCDD223D92DC00DB1A7E /* SemesterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SemesterModel.swift; path = "/Users/macos/Documents/GPA-Tracker/GPA Tracker/Model/SemesterModel.swift"; sourceTree = "<absolute>"; };
 		22F0975F220BDD0E009881F8 /* GPA Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GPA Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F09762220BDD0E009881F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22F09764220BDD0E009881F8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -145,8 +147,9 @@
 		22F09790220BDDD6009881F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				224FBCDD223D92DC00DB1A7E /* SemesterModel.swift */,
 			);
-			path = Model;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		22F09791220BDDDD009881F8 /* View */ = {
@@ -398,6 +401,7 @@
 			files = (
 				22F09765220BDD0E009881F8 /* MainViewController.swift in Sources */,
 				22F09763220BDD0E009881F8 /* AppDelegate.swift in Sources */,
+				224FBCDE223D92DC00DB1A7E /* SemesterModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
