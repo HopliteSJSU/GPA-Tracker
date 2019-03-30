@@ -41,6 +41,10 @@ class SemesterView: UIView, UITableViewDelegate, UITableViewDataSource {
         setupSemesterTitle()
         setupSemesterGPA()
         setupTableOfClasses()
+        // Register the table view cell class and its reuse id
+        self.tableOfClasses.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableOfClasses.delegate = self
+        tableOfClasses.dataSource = self
     }
     
     func setupSemesterTitle() {
