@@ -6,6 +6,7 @@ target 'GPA Tracker' do
   use_frameworks!
 
   # Pods for GPA Tracker
+  pod 'SnapKit', '~> 4.0'
 
   target 'GPA TrackerTests' do
     inherit! :search_paths
