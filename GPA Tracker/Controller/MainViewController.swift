@@ -25,7 +25,12 @@ class MainViewController: UIViewController {
         self.view.backgroundColor = bgColor
         
         setupAddSemesterButton()
+        addSemesterButton.addTarget(self, action: #selector(MainViewController.addSemester), for: UIControl.Event.touchUpInside)
         setupSemesterView()
+    }
+    
+    @objc func addSemester() {
+        print("Button was touched!")
     }
     
     func setupAddSemesterButton() {
