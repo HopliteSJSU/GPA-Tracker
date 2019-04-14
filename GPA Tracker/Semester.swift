@@ -9,13 +9,11 @@
 import Foundation
 
 public class Semester {
-    var name: String // Semester name
-    var gpa: Double // Semester gpa
+    var name: String! // Semester name
+    var gpa: Double! // Semester gpa
     var classes: [Course] // list of all classes taken this semester
     
-    init(name: String, gpa: Double) {
-        self.name = name
-        self.gpa = gpa
+    init() {
         self.classes = [Course]()
     }
 }

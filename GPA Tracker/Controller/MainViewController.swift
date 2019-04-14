@@ -16,7 +16,7 @@ let bgColor = UIColor(displayP3Red: 253 / 255, green: 219 / 255, blue: 93 / 255,
 class MainViewController: UIViewController {
     var semesterView: UIView!
     var addSemesterButton: UIButton!
-    
+    var semester: Semester!
   
     
     
@@ -26,6 +26,10 @@ class MainViewController: UIViewController {
         
         setupAddSemesterButton()
         addSemesterButton.addTarget(self, action: #selector(MainViewController.addSemester), for: UIControl.Event.touchUpInside)
+        
+        self.semester = Semester()
+        //self.semester.name = "Spring 2019"
+        //self.semester.gpa = 3.1
         setupSemesterView()
     }
     
@@ -46,7 +50,7 @@ class MainViewController: UIViewController {
     }
     
     func setupSemesterView() {
-        semesterView = SemesterView()
+        semesterView = SemesterView(semester: self.semester, frame: CGRect.zero)
         self.view.addSubview(semesterView)
         semesterView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(self.view).inset(UIEdgeInsets(top: 121, left: 19, bottom: 90, right: 19))
