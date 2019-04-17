@@ -113,10 +113,6 @@ class SemesterView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.addSubview(tableOfClasses)
         tableOfClasses.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(self).inset(UIEdgeInsets(top: 107, left: 16, bottom: 20, right: 8))
-            /*make.left.equalTo(semester).offset(16)
-             make.right.equalTo(semester).offset(-8)
-             make.top.equalTo(semester).offset(107)
-             make.bottom.equalTo(semester).offset(-20)*/
         }
     }
     
