@@ -19,27 +19,14 @@ class MainViewController: UIViewController {
     var scrollView: UIScrollView!
     var semesters: [Semester]!
     var semesterViews: [SemesterView]!
+    var wrapperViews: [UIView]!
     var stackView: UIStackView!
     var pageControl: UIPageControl!
-  
-    
-    
-    fileprivate func setupSemesterFromData(_ semester: (Semester)) {
-        let semesterView = setupSemesterView(semester : semester)
-        stackView.addArrangedSubview(semesterView)
-        semesterView.snp.makeConstraints { (make) -> Void in
-            make.height.equalTo(scrollView)
-            make.width.equalTo(self.view)
-        }
-        semesterViews.append(semesterView)
-    }
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = bgColor
-        
-        setupAddSemesterButton()
-        addSemesterButton.addTarget(self, action: #selector(MainViewController.addSemester), for: UIControl.Event.touchUpInside)
         
         // DUMMY DATA
         self.semesters = [Semester]()
@@ -57,16 +44,49 @@ class MainViewController: UIViewController {
         semester3.name = "Fall 2019"
         self.semesters.append(semester3)
         
-        // SCROLL VIEW and STACK VIEW
+        // Setup Scroll View to show all semesters
+        setupScrollView()
+        
+        // Setup button to add new semester
+        setupAddSemesterButton()
+        addSemesterButton.addTarget(self, action: #selector(MainViewController.addSemester), for: UIControl.Event.touchUpInside)
+        
+        // Setup page control (little dots for navigation)
+        setupPageControl()
+        pageControl.addTarget(self, action: #selector(pageControlTapped(sender:)), for: .valueChanged)
+    }
+    
+    @objc func pageControlTapped(sender: UIPageControl) {
+        print("Tapped")
+    }
+    
+    @objc func addSemester() {
+        let semester = Semester()
+        self.semesters.append(semester)
+        print("New semester has been appended! Number of semesters %d", self.semesters.count)
+        setupSemesterFromData(semester)
+        pageControl.numberOfPages = semesters.count
+    }
+    
+    func setupPageControl() {
+        pageControl = UIPageControl()
+        pageControl.currentPageIndicatorTintColor = .black
+        pageControl.pageIndicatorTintColor = .gray
+        self.view.addSubview(pageControl)
+        pageControl.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(self.view.snp.centerX)
+            make.bottom.equalTo(self.view).offset(-52)
+        }
+        pageControl.numberOfPages = semesters.count
+    }
+    
+    func setupScrollView() {
         scrollView = UIScrollView()
         scrollView.backgroundColor = bgColor
         self.view.addSubview(scrollView)
         scrollView.isPagingEnabled = true
         scrollView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view)
-            make.right.equalTo(self.view)
-            make.top.equalTo(self.view).offset(121)
-            make.bottom.equalTo(self.view).offset(-90)
+            make.edges.equalToSuperview()
         }
         
         stackView = UIStackView()
@@ -76,30 +96,36 @@ class MainViewController: UIViewController {
             make.edges.equalToSuperview()
             
         }
-      
+        
         // Create SEMESTER VIEWS from data
         semesterViews = [SemesterView]()
+        wrapperViews = [UIView]()
         semesters.forEach { (semester) in
             setupSemesterFromData(semester)
         }
-        
-        // PAGE CONTROL
-        pageControl = UIPageControl()
-        self.view.addSubview(pageControl)
-        pageControl.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(self.view.snp.centerX)
-            make.bottom.equalTo(self.view).offset(-52)
-        }
-        pageControl.numberOfPages = semesters.count
-        //pageControl
     }
     
-    @objc func addSemester() {
-        let semester = Semester()
-        self.semesters.append(semester)
-        print("New semester has been appended! Number of semesters %d", self.semesters.count)
-        setupSemesterFromData(semester)
-        pageControl.numberOfPages = semesters.count
+    func setupSemesterFromData(_ semester: (Semester)) {
+        let wrapper = UIView()
+        
+        let semesterView = setupSemesterView(semester : semester)
+        stackView.addArrangedSubview(semesterView)
+        
+        stackView.addArrangedSubview(wrapper)
+        wrapper.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(scrollView)
+            make.width.equalTo(self.view)
+        }
+        wrapper.addSubview(semesterView)
+        
+        semesterView.snp.makeConstraints { (make) -> Void in
+            //make.height.equalTo(scrollView)
+            //make.width.equalTo(self.view).inset(20)
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 121, left: 19, bottom: 90, right: 19))
+            
+        }
+        wrapperViews.append(wrapper)
+        semesterViews.append(semesterView)
     }
     
     func setupAddSemesterButton() {
@@ -116,13 +142,7 @@ class MainViewController: UIViewController {
     
     func setupSemesterView(semester : Semester) -> SemesterView {
         let semesterView = SemesterView(semester: semester, frame: CGRect.zero)
-        /*self.view.addSubview(semesterView)
-        semesterView.snp.makeConstraints { (make) -> Void in
-            make.edges.equalTo(self.view).inset(UIEdgeInsets(top: 121, left: 19, bottom: 90, right: 19))
-        }*/
         return semesterView
     }
-
-
 }
 
