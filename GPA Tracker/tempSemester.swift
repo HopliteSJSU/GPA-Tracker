@@ -48,6 +48,9 @@ public class tempSemester: Codable {
     }
     
     func gpaCalc() -> Double {
+        if classes.count == 0 {
+            return 0
+        }
         var totalCredits = 0.0
         var gradeAndCredits = 0.0
         // (grade * credits) / credits
