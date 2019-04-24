@@ -7,7 +7,7 @@
 //
 import Foundation
 
-public class Course {
+public class Course: Codable {
     var name: String // Course name
     var weight: Double // Course weight
     var grade: String // Course letter grade, A-, A, A+, etc

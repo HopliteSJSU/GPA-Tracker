@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class tempSemester {
+public class tempSemester: Codable {
     var name: String
     var gpa: Double
     var classes: [Course]
