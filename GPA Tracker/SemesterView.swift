@@ -25,6 +25,8 @@ class SemesterView: UIView, UITableViewDelegate, UITableViewDataSource {
     var tableOfClasses: UITableView!
     
     private var courses = ["CS 147", "CS 149", "MATH 123", "FR 101"]
+    private var testSemester = tempSemester() // assume that the semester class holds all the data, since a semesterView would contain a semester 
+    
     let cellReuseIdentifier = "cell"
     
     
@@ -62,7 +64,7 @@ class SemesterView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func setupSemesterGPA() {
         semesterGPA = UILabel()
-        semesterGPA.text = "GPA: --"
+        semesterGPA.text = "GPA: " + String(testSemester.gpaCalc())
         semesterGPA.textAlignment = .left
         semesterGPA.font = headler2Font
         self.addSubview(semesterGPA)
