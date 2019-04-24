@@ -56,7 +56,16 @@ class MainViewController: UIViewController {
         pageControl.addTarget(self, action: #selector(pageControlTapped(sender:)), for: .valueChanged)
         print("size of the screen = ", self.view.frame.width)
         //print("Stack view = ", stackView.frame.width, stackView.frame.height)
-        
+        // Set scrollView content size manually
+        let contentWidth = self.view.frame.width * CGFloat(semesters.count)
+        scrollView.contentSize = CGSize(width: contentWidth, height: self.view.frame.height)
+        print("Scroll view content size = ", scrollView.contentSize)
+        var lastVisibleRect = CGRect()
+        lastVisibleRect.size.height = self.view.frame.height
+        lastVisibleRect.origin.y = 0.0
+        lastVisibleRect.size.width = self.view.frame.width
+        lastVisibleRect.origin.x = self.view.frame.width * CGFloat(semesters.count - 1)
+        scrollView.scrollRectToVisible(lastVisibleRect, animated: true)
     }
     
     @objc func pageControlTapped(sender: UIPageControl) {
@@ -73,17 +82,19 @@ class MainViewController: UIViewController {
         print("Scroll view bounds width = ", scrollView.bounds.width)
         print("Stack view = ", stackView.frame.width, stackView.frame.height)
         
+        // Manually update content width. New width = old width + width of a new semester
+        scrollView.contentSize = CGSize(width: CGFloat(scrollView.contentSize.width + self.view.frame.width), height: scrollView.contentSize.height)
         
         var lastVisibleRect = CGRect()
         lastVisibleRect.size.height = self.view.frame.height
         lastVisibleRect.origin.y = 0.0
         lastVisibleRect.size.width = self.view.frame.width
-        lastVisibleRect.origin.x = self.view.frame.width * CGFloat(semesters.count - 2)
+        lastVisibleRect.origin.x = self.view.frame.width * CGFloat(semesters.count - 1)
         scrollView.scrollRectToVisible(lastVisibleRect, animated: true)
         
         
         print("Stack view width = ", stackView.frame.width)
-        print("Scroll view bounds width = ", scrollView.bounds.width)
+        print("Scroll view size = ", scrollView.contentSize)
         print("Scroll view offset = ", scrollView.contentOffset)
         //print("width of scrollView =", scrollView.frame.width)
         print("Last Visible Rect = ", lastVisibleRect)
@@ -125,7 +136,6 @@ class MainViewController: UIViewController {
             make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            
         }
         
         // Create SEMESTER VIEWS from data
