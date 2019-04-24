@@ -42,6 +42,16 @@ class GPA_TrackerTests: XCTestCase {
         XCTAssert(course2.name != course1.name)
         XCTAssert(course2.weight == 3)
     }
+    
+    func testSemester(){
+        var classes1: [Course]
+        let isFalse = false
+        let stringS = "Spring 2019"
+        let course1 = Course(name: "CS 146", weight: 3, grade: "B", isIgnored: false)
+        classes1[0] = course1
+        let semester1 = SemesterModel(name: stringS, gpa: 3.5, classes: classes1, isSemesterIgnored: isFalse)
+        //let semester2 = SemesterModel(
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
