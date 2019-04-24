@@ -54,6 +54,9 @@ class MainViewController: UIViewController {
         // Setup page control (little dots for navigation)
         setupPageControl()
         pageControl.addTarget(self, action: #selector(pageControlTapped(sender:)), for: .valueChanged)
+        print("size of the screen = ", self.view.frame.width)
+        //print("Stack view = ", stackView.frame.width, stackView.frame.height)
+        
     }
     
     @objc func pageControlTapped(sender: UIPageControl) {
@@ -61,11 +64,30 @@ class MainViewController: UIViewController {
     }
     
     @objc func addSemester() {
+        print("Stack view width = ", stackView.frame.width)
         let semester = Semester()
         self.semesters.append(semester)
         print("New semester has been appended! Number of semesters %d", self.semesters.count)
         setupSemesterFromData(semester)
         pageControl.numberOfPages = semesters.count
+        print("Scroll view bounds width = ", scrollView.bounds.width)
+        print("Stack view = ", stackView.frame.width, stackView.frame.height)
+        
+        
+        var lastVisibleRect = CGRect()
+        lastVisibleRect.size.height = self.view.frame.height
+        lastVisibleRect.origin.y = 0.0
+        lastVisibleRect.size.width = self.view.frame.width
+        lastVisibleRect.origin.x = self.view.frame.width * CGFloat(semesters.count - 2)
+        scrollView.scrollRectToVisible(lastVisibleRect, animated: true)
+        
+        
+        print("Stack view width = ", stackView.frame.width)
+        print("Scroll view bounds width = ", scrollView.bounds.width)
+        print("Scroll view offset = ", scrollView.contentOffset)
+        //print("width of scrollView =", scrollView.frame.width)
+        print("Last Visible Rect = ", lastVisibleRect)
+        print(" ")
     }
     
     func setupPageControl() {
@@ -86,14 +108,23 @@ class MainViewController: UIViewController {
         self.view.addSubview(scrollView)
         scrollView.isPagingEnabled = true
         scrollView.snp.makeConstraints { (make) -> Void in
-            make.edges.equalToSuperview()
+            //make.edges.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
         }
+        scrollView.delegate = self as? UIScrollViewDelegate
         
         stackView = UIStackView()
         stackView.distribution = .equalSpacing
         scrollView.addSubview(stackView)
         stackView.snp.makeConstraints { (make) -> Void in
-            make.edges.equalToSuperview()
+            //make.edges.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
             
         }
         
@@ -103,19 +134,14 @@ class MainViewController: UIViewController {
         semesters.forEach { (semester) in
             setupSemesterFromData(semester)
         }
+        
     }
     
     func setupSemesterFromData(_ semester: (Semester)) {
         let wrapper = UIView()
         
         let semesterView = setupSemesterView(semester : semester)
-        stackView.addArrangedSubview(semesterView)
         
-        stackView.addArrangedSubview(wrapper)
-        wrapper.snp.makeConstraints { (make) -> Void in
-            make.height.equalTo(scrollView)
-            make.width.equalTo(self.view)
-        }
         wrapper.addSubview(semesterView)
         
         semesterView.snp.makeConstraints { (make) -> Void in
@@ -124,6 +150,14 @@ class MainViewController: UIViewController {
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 121, left: 19, bottom: 90, right: 19))
             
         }
+        
+        stackView.addArrangedSubview(wrapper)
+        wrapper.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(self.view)
+            make.width.equalTo(self.view)
+        }
+        print("Wrapper view size  = ", wrapper.frame.width, wrapper.frame.height)
+        print("Stack view size after adding wrapper = ", stackView.frame.width, stackView.frame.height)
         wrapperViews.append(wrapper)
         semesterViews.append(semesterView)
     }
