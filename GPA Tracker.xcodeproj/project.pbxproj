@@ -19,6 +19,7 @@
 		67FDAEA4222F537C0055E965 /* SemesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FDAEA3222F537C0055E965 /* SemesterView.swift */; };
 		96489358226D7E5F00D43178 /* OverallGPA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96489357226D7E5F00D43178 /* OverallGPA.swift */; };
 		9648935A226D7E7300D43178 /* tempSemester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96489359226D7E7300D43178 /* tempSemester.swift */; };
+		9681138922711AE800F29D9D /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9681138822711AE800F29D9D /* CustomCell.swift */; };
 		969C343A2252DB150003B21E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C34392252DB150003B21E /* Course.swift */; };
 		96B7F43A226D886900301667 /* CurrentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7F439226D886900301667 /* CurrentData.swift */; };
 		B69D36040BFE23CCD026B23A /* Pods_GPA_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B95C7797A83957736B80CB2 /* Pods_GPA_TrackerTests.framework */; };
@@ -61,6 +62,7 @@
 		86C42B3B034FF6BDD35AC65F /* Pods_GPA_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96489357226D7E5F00D43178 /* OverallGPA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallGPA.swift; sourceTree = "<group>"; };
 		96489359226D7E7300D43178 /* tempSemester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempSemester.swift; sourceTree = "<group>"; };
+		9681138822711AE800F29D9D /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = "GPA Tracker/CustomCell.swift"; sourceTree = SOURCE_ROOT; };
 		969C34392252DB150003B21E /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		96B7F439226D886900301667 /* CurrentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentData.swift; sourceTree = "<group>"; };
 		9C3E32470744BEF847BB4DF8 /* Pods-GPA Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPA Tracker/Pods-GPA Tracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				67FDAEA3222F537C0055E965 /* SemesterView.swift */,
+				9681138822711AE800F29D9D /* CustomCell.swift */,
 				6707978C224B4D83001DA286 /* TableView.swift */,
 			);
 			path = View;
@@ -443,6 +446,7 @@
 				96B7F43A226D886900301667 /* CurrentData.swift in Sources */,
 				9648935A226D7E7300D43178 /* tempSemester.swift in Sources */,
 				67FDAEA4222F537C0055E965 /* SemesterView.swift in Sources */,
+				9681138922711AE800F29D9D /* CustomCell.swift in Sources */,
 				6707978D224B4D83001DA286 /* TableView.swift in Sources */,
 				969C343A2252DB150003B21E /* Course.swift in Sources */,
 				22F09765220BDD0E009881F8 /* MainViewController.swift in Sources */,
