@@ -25,6 +25,8 @@ class SemesterView: UIView, UITableViewDelegate, UITableViewDataSource {
     var tableOfClasses: UITableView!
     
     private var courses = ["CS 147", "CS 149", "MATH 123", "FR 101"]
+    private var weight = ["3.0", "4.0", "3.0", "4.0"]
+    private var grades = ["A+", "A-", "B+", "C"]
     private var testSemester = tempSemester() // assume that the semester class holds all the data, since a semesterView would contain a semester 
     
     let cellReuseIdentifier = "cell"
@@ -82,10 +84,10 @@ class SemesterView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // create a new cell if needed or reuse an old one
-        let cell = tableOfClasses.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
         // set the text from the data model
-        cell.textLabel?.text = courses[indexPath.row]
+        cell.textLabel?.text = courses.self[indexPath.row]
         cell.textLabel?.font = header1Font
         return cell
     }
@@ -94,6 +96,7 @@ class SemesterView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableOfClasses = TableView()
         self.addSubview(tableOfClasses)
         tableOfClasses.snp.makeConstraints { (make) -> Void in
+            // 107, 16, 20, 8
             make.edges.equalTo(self).inset(UIEdgeInsets(top: 107, left: 16, bottom: 20, right: 8))
             /*make.left.equalTo(semester).offset(16)
              make.right.equalTo(semester).offset(-8)
