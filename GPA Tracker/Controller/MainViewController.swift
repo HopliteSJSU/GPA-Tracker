@@ -15,6 +15,7 @@ let bgColor = UIColor(displayP3Red: 253 / 255, green: 219 / 255, blue: 93 / 255,
 
 class MainViewController: UIViewController {
     var semesterView: UIView!
+    var settingsButton: UIButton!
     var overallGPA = OverallGPA()
     var semester1 = tempSemester()
     var semester2 = tempSemester()
@@ -34,6 +35,8 @@ class MainViewController: UIViewController {
         overallGPA.calcCumulativeGPA(semesters: [semester1, semester2]) // This updates the GPA before displaying it, GPA here should be 3.89
         setupOverallGPALabel()
         setupSemesterView()
+        setupSettingsButton()
+
     }
     
     func setupSemesterView() {
@@ -54,6 +57,21 @@ class MainViewController: UIViewController {
         self.view.addSubview(overallGPALabel)
         
     }
+    
+    func setupSettingsButton() {
+        settingsButton = UIButton(frame: CGRect(x: 16, y: 56, width: 25, height: 25))
+        settingsButton.showsTouchWhenHighlighted = true;
+        settingsButton.setImage(UIImage(named: "settingsButton"), for: .normal)
+        self.view.addSubview(settingsButton)
+        settingsButton.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
+
+
+    }
+    
+    @objc func buttonClick(_ sender: UIButton) {
+        print("Clicked")
+    }
+
 
 }
 
