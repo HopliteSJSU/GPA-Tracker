@@ -13,7 +13,7 @@ import SnapKit
 
 let bgColor = UIColor(displayP3Red: 253 / 255, green: 219 / 255, blue: 93 / 255, alpha: 1.0)
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UIScrollViewDelegate {
     
     var addSemesterButton: UIButton!
     var scrollView: UIScrollView!
@@ -187,6 +187,17 @@ class MainViewController: UIViewController {
     func setupSemesterView(semester : Semester) -> SemesterView {
         let semesterView = SemesterView(semester: semester, frame: CGRect.zero)
         return semesterView
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var pageWidth = scrollView.bounds.width
+        var pageFraction = scrollView.contentOffset.x/pageWidth
+        if (pageWidth == 0) {
+            pageFraction = 0
+        }
+        print("page width = ", pageWidth)
+        print("Current page = ", pageFraction)
+        pageControl.currentPage = Int(pageFraction)
     }
 }
 
