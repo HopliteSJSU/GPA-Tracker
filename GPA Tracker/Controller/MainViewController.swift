@@ -55,35 +55,32 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         setupPageControl()
         pageControl.addTarget(self, action: #selector(pageControlTapped(sender:)), for: .valueChanged)
         print("size of the screen = ", self.view.frame.width)
-        //print("Stack view = ", stackView.frame.width, stackView.frame.height)
-        // Set scrollView content size manually
-        let contentWidth = self.view.frame.width * CGFloat(semesters.count)
-        scrollView.contentSize = CGSize(width: contentWidth, height: self.view.frame.height)
-        print("Scroll view content size = ", scrollView.contentSize)
-        var lastVisibleRect = CGRect()
-        lastVisibleRect.size.height = self.view.frame.height
-        lastVisibleRect.origin.y = 0.0
-        lastVisibleRect.size.width = self.view.frame.width
-        lastVisibleRect.origin.x = self.view.frame.width * CGFloat(semesters.count - 1)
-        scrollView.scrollRectToVisible(lastVisibleRect, animated: true)
+        
+        moveToTheLastSemester()
     }
     
     @objc func pageControlTapped(sender: UIPageControl) {
-        print("Tapped")
+        let pageWidth = self.view.frame.width
+        let offset = sender.currentPage * Int(pageWidth)
+        UIView.animate(withDuration: 0.33, animations: { [weak self] in
+            self?.scrollView.contentOffset.x = CGFloat(offset)
+        })
     }
     
     @objc func addSemester() {
-        print("Stack view width = ", stackView.frame.width)
         let semester = Semester()
         self.semesters.append(semester)
         print("New semester has been appended! Number of semesters %d", self.semesters.count)
         setupSemesterFromData(semester)
         pageControl.numberOfPages = semesters.count
-        print("Scroll view bounds width = ", scrollView.bounds.width)
-        print("Stack view = ", stackView.frame.width, stackView.frame.height)
         
-        // Manually update content width. New width = old width + width of a new semester
-        scrollView.contentSize = CGSize(width: CGFloat(scrollView.contentSize.width + self.view.frame.width), height: scrollView.contentSize.height)
+        moveToTheLastSemester()
+    }
+    
+    func moveToTheLastSemester() {
+        // Set scrollView content size manually
+        let contentWidth = self.view.frame.width * CGFloat(semesters.count)
+        scrollView.contentSize = CGSize(width: contentWidth, height: self.view.frame.height)
         
         var lastVisibleRect = CGRect()
         lastVisibleRect.size.height = self.view.frame.height
@@ -91,14 +88,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         lastVisibleRect.size.width = self.view.frame.width
         lastVisibleRect.origin.x = self.view.frame.width * CGFloat(semesters.count - 1)
         scrollView.scrollRectToVisible(lastVisibleRect, animated: true)
-        
-        
-        print("Stack view width = ", stackView.frame.width)
-        print("Scroll view size = ", scrollView.contentSize)
-        print("Scroll view offset = ", scrollView.contentOffset)
-        //print("width of scrollView =", scrollView.frame.width)
-        print("Last Visible Rect = ", lastVisibleRect)
-        print(" ")
     }
     
     func setupPageControl() {
@@ -125,7 +114,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
-        scrollView.delegate = self as? UIScrollViewDelegate
+        scrollView.delegate = self
         
         stackView = UIStackView()
         stackView.distribution = .equalSpacing
@@ -155,8 +144,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         wrapper.addSubview(semesterView)
         
         semesterView.snp.makeConstraints { (make) -> Void in
-            //make.height.equalTo(scrollView)
-            //make.width.equalTo(self.view).inset(20)
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 121, left: 19, bottom: 90, right: 19))
             
         }
@@ -190,14 +177,14 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        var pageWidth = scrollView.bounds.width
+        let pageWidth = scrollView.bounds.width
         var pageFraction = scrollView.contentOffset.x/pageWidth
         if (pageWidth == 0) {
             pageFraction = 0
         }
         print("page width = ", pageWidth)
         print("Current page = ", pageFraction)
-        pageControl.currentPage = Int(pageFraction)
+        pageControl.currentPage = Int(round(pageFraction))
     }
 }
 
