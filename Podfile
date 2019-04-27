@@ -8,6 +8,7 @@ target 'GPA Tracker' do
   # Pods for GPA Tracker
   pod 'SnapKit', '~> 4.0'
   pod 'Disk', '~> 0.6.3'
+  pod 'QuickTableViewController'
 
   target 'GPA TrackerTests' do
     inherit! :search_paths
