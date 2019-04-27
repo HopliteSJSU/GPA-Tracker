@@ -15,6 +15,11 @@ let bgColor = UIColor(displayP3Red: 253 / 255, green: 219 / 255, blue: 93 / 255,
 
 class MainViewController: UIViewController {
     var semesterView: UIView!
+    var overallGPA = OverallGPA()
+    var semester1 = tempSemester()
+    var semester2 = tempSemester()
+    var totalSemesters = [tempSemester]()
+
     
     //var addClassButton: UIButton!
     
@@ -24,7 +29,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = bgColor
-        
+        semester1.gpa = 3.93
+        semester2.gpa = 3.85
+        overallGPA.calcCumulativeGPA(semesters: [semester1, semester2]) // This updates the GPA before displaying it, GPA here should be 3.89
+        setupOverallGPALabel()
         setupSemesterView()
     }
     
@@ -35,7 +43,17 @@ class MainViewController: UIViewController {
             make.edges.equalTo(self.view).inset(UIEdgeInsets(top: 121, left: 19, bottom: 90, right: 19))
         }
     }
-
+    
+    func setupOverallGPALabel() {
+        let overallGPALabel = UILabel(frame: CGRect(x: 85, y: 49, width: 205, height: 40))
+        overallGPALabel.font = UIFont(name: "SFProDisplay", size: 34)
+        overallGPALabel.font = UIFont.systemFont(ofSize: 34, weight: UIFont.Weight.semibold)
+        overallGPALabel.textAlignment = .center
+        overallGPALabel.text = "Overall: " + String(overallGPA.cumulativeGPA) // Call it by overallGPA.calculateCumulativeGPA([tempSemester])
+        overallGPALabel.textColor = .black
+        self.view.addSubview(overallGPALabel)
+        
+    }
 
 }
 
