@@ -36,6 +36,7 @@ class MainViewController: UIViewController {
         setupOverallGPALabel()
         setupSemesterView()
         setupSettingsButton()
+        
 
     }
     
@@ -58,6 +59,7 @@ class MainViewController: UIViewController {
         
     }
     
+    
     func setupSettingsButton() {
         settingsButton = UIButton(frame: CGRect(x: 16, y: 56, width: 25, height: 25))
         settingsButton.showsTouchWhenHighlighted = true;
@@ -69,6 +71,8 @@ class MainViewController: UIViewController {
     }
     
     @objc func buttonClick(_ sender: UIButton) {
+        let semesView: SettingsViewController = SettingsViewController()
+        self.present(semesView, animated: true, completion: nil)
         print("Clicked")
     }
 
