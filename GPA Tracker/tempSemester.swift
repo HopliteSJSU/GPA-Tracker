@@ -11,6 +11,9 @@ import Foundation
 public class tempSemester {
     var name: String
     var gpa: Double
+    private var nonRoundedGPA: Double
+    var totalWeight: Double
+    var totalGradePoints: Double
     var classes: [Course]
     private var dict = ["A+": 4.0,
                         "A": 4.0,
@@ -29,6 +32,9 @@ public class tempSemester {
     init() {
         name = ""
         gpa = 0.0
+        nonRoundedGPA = 0.0
+        totalWeight = 0.0
+        totalGradePoints = 0.0
         classes = []
     }
     
@@ -53,8 +59,11 @@ public class tempSemester {
         // (grade * credits) / credits
         for course in classes {
             gradeAndCredits += course.weight * dict[course.grade]!
+            totalGradePoints += course.weight * dict[course.grade]!
             totalCredits += course.weight
+            totalWeight += course.weight
         }
-        self.gpa = gradeAndCredits / totalCredits
+        self.nonRoundedGPA = gradeAndCredits / totalCredits
+        self.gpa = (nonRoundedGPA * 100).rounded() / 100
     }
 }
