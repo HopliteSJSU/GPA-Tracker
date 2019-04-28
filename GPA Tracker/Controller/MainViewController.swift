@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
     var overallGPA = OverallGPA()
     var semester1 = tempSemester()
     var semester2 = tempSemester()
+    var semester3 = tempSemester()
+    var semester4 = tempSemester()
     var totalSemesters = [tempSemester]()
 
     
@@ -29,9 +31,26 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = bgColor
-        semester1.gpa = 3.93
-        semester2.gpa = 3.85
-        overallGPA.calcCumulativeGPA(semesters: [semester1, semester2]) // This updates the GPA before displaying it, GPA here should be 3.89
+        semester1.classes = [Course(name: "CS1", weight: 3.0, grade: "A-", isIgnored: false),
+                             Course(name: "CS2", weight: 3.0, grade: "C-", isIgnored: false),
+                             Course(name: "CS3", weight: 3.0, grade: "A-", isIgnored: false)
+                            ]
+        semester2.classes = [Course(name: "CS1", weight: 4.0, grade: "A-", isIgnored: false),
+                             Course(name: "CS2", weight: 4.0, grade: "B-", isIgnored: false),
+                             Course(name: "CS3", weight: 2.0, grade: "B+", isIgnored: false)
+                            ]
+        
+        semester3.classes = [Course(name: "CS1", weight: 3.0, grade: "B+", isIgnored: false),
+                             Course(name: "CS2", weight: 3.0, grade: "C", isIgnored: false),
+                             Course(name: "CS3", weight: 3.0, grade: "A", isIgnored: false)
+                            ]
+        semester4.classes = [Course(name: "CS1", weight: 3.0, grade: "B", isIgnored: false),
+                             Course(name: "CS2", weight: 3.0, grade: "B", isIgnored: false),
+                             Course(name: "CS3", weight: 3.0, grade: "D+", isIgnored: false),
+                             Course(name: "CS4", weight: 3.0, grade: "A-", isIgnored: false)
+                            ]
+        
+        overallGPA.calcCumulativeGPA(semesters: [semester1, semester2, semester3, semester4]) // This updates the GPA before displaying it, GPA here should be 3.01
         setupOverallGPALabel()
         setupSemesterView()
     }
