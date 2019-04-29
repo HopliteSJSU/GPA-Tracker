@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-public class SemesterModel{
+public class Semester {
     
     
     var isSemesterIgnored:Bool;
@@ -18,7 +18,7 @@ public class SemesterModel{
     
     var SemesterName:String="";
     var SemesterGPA:Double=0.0;
-    var classes: [Course];
+    var classes = [Course]()
     
     init(name: String, gpa: Double, classes: [Course], isSemesterIgnored: Bool){
         self.SemesterName = name;
@@ -32,11 +32,47 @@ public class SemesterModel{
         
     }//end of addclass
     
-    func deleteClass(theCourse: Course){
+    func removeClass(theCourse: Course){
+        let indexOfClass: Int = classes.firstIndex{$0 === theCourse}!
+        if indexOfClass != nil {
+            classes.remove(at: indexOfClass)
+        }
+    }
+    
+     func deleteClass(theCourse: Course)->Int{
+        
+        var i:Int = -1
+        for(index,theCourse) in classes.enumerated(){
+
+            if(classes[index] === theCourse){
+               i = index;
+            }
+
+        }
+
+        if(i>=0){
+        classes.remove(at: i)
+
+        }else{
+            return -1
+        
+        }
+        return 1
+        
+        
+        
+        
         
         //use indexOf()
-        index(of classes: theCourse)->index
-        classes.remove(at: index)
+        //var index:int = 1
+       // classes.contain
+        
+        
+        
+//        func index(of theCourse: classes)->Index?{
+//            return firstIndex(of: classes)
+//        }
+//        classes.remove(at: index)
         
 
         //        for i in 0...classes.endIndex{

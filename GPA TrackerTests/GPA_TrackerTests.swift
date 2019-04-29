@@ -6,8 +6,8 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
-import XCTest
 @testable import GPA_Tracker
+import XCTest
 
 
 class GPA_TrackerTests: XCTestCase {
@@ -44,13 +44,48 @@ class GPA_TrackerTests: XCTestCase {
     }
     
     func testSemester(){
-        var classes1: [Course]
-        let isFalse = false
-        let stringS = "Spring 2019"
+//        var classes1 = [Course]()
+//        let isFalse = false
+//        let stringS = "Spring 2019"
         let course1 = Course(name: "CS 146", weight: 3, grade: "B", isIgnored: false)
-        classes1[0] = course1
-        let semester1 = SemesterModel(name: stringS, gpa: 3.5, classes: classes1, isSemesterIgnored: isFalse)
-        //let semester2 = SemesterModel(
+//        classes1.append(course1)
+//        let semester1 = Semester(name: stringS, gpa: 3.5, classes: classes1, isSemesterIgnored: isFalse)
+//        //let semester2 = SemesterModel(
+//        XCTAssertEqual(course1.name, "CS 146")
+//        XCTAssertEqual(classes1, "CS 146")
+//
+        var Semester1 = [Course(name: "CS1", weight: 3.0, grade: "A-", isIgnored: false),
+                     Course(name: "CS2", weight: 3.0, grade: "C-", isIgnored: false),
+                     Course(name: "CS3", weight: 3.0, grade: "A-", isIgnored: false)
+        ]
+        Semester1.remove(at: 0)
+        XCTAssertEqual(Semester1.count,2)
+        XCTAssertEqual(Semester1[1].name,"CS3")
+        
+        
+        var CourseArray:[Course] = Semester1
+        var NewSemester: Semester = Semester(name: "Spring2019", gpa: 3.0, classes: CourseArray, isSemesterIgnored: false)
+        NewSemester.addClass(newClass: course1)
+        NewSemester.addClass(newClass: Course(name: "Class1", weight: 3, grade: "A", isIgnored: false))
+        XCTAssertEqual(NewSemester.classes.count,4)
+        XCTAssertEqual(NewSemester.classes[2].name,"CS 146")
+        
+        
+        NewSemester.removeClass(theCourse: course1)
+        XCTAssertEqual(NewSemester.classes[2].name,"Class1")
+        XCTAssertEqual(NewSemester.deleteClass(theCourse: course1), 1)
+        
+        NewSemester.deleteClass(theCourse: NewSemester.classes[1])
+        NewSemester.deleteClass(theCourse: NewSemester.classes[0])
+        XCTAssertEqual(NewSemester.classes.count,0)
+        
+        CourseArray = Semester1
+        NewSemester.addClass(newClass: course1)
+        var newCourseArray:[Course] = NewSemester.getClasses()
+        var testingCourse : Course = newCourseArray[0]
+        XCTAssertEqual(newCourseArray[0].grade, testingCourse.grade)
+        
+        
     }
 
     func testPerformanceExample() {
