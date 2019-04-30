@@ -61,12 +61,15 @@ class MainViewController: UIViewController {
     
     
     func setupSettingsButton() {
-        settingsButton = UIButton(frame: CGRect(x: 16, y: 56, width: 25, height: 25))
+        settingsButton = UIButton()
         settingsButton.showsTouchWhenHighlighted = true;
         settingsButton.setImage(UIImage(named: "settingsButton"), for: .normal)
         self.view.addSubview(settingsButton)
         settingsButton.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
-
+        settingsButton.snp.makeConstraints { (make) -> Void in
+            make.right.equalTo(self.view).offset(16)
+            make.top.equalTo(self.view).offset(-56)
+        }
 
     }
     
