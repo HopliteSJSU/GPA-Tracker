@@ -21,4 +21,3 @@ public class Course {
         self.isIgnored = isIgnored
     }
 }
-

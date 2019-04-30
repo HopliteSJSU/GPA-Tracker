@@ -10,6 +10,7 @@
 import XCTest
 
 
+
 class GPA_TrackerTests: XCTestCase {
 
     override func setUp() {
@@ -44,16 +45,7 @@ class GPA_TrackerTests: XCTestCase {
     }
     
     func testSemester(){
-//        var classes1 = [Course]()
-//        let isFalse = false
-//        let stringS = "Spring 2019"
         let course1 = Course(name: "CS 146", weight: 3, grade: "B", isIgnored: false)
-//        classes1.append(course1)
-//        let semester1 = Semester(name: stringS, gpa: 3.5, classes: classes1, isSemesterIgnored: isFalse)
-//        //let semester2 = SemesterModel(
-//        XCTAssertEqual(course1.name, "CS 146")
-//        XCTAssertEqual(classes1, "CS 146")
-//
         var Semester1 = [Course(name: "CS1", weight: 3.0, grade: "A-", isIgnored: false),
                      Course(name: "CS2", weight: 3.0, grade: "C-", isIgnored: false),
                      Course(name: "CS3", weight: 3.0, grade: "A-", isIgnored: false)
@@ -86,13 +78,6 @@ class GPA_TrackerTests: XCTestCase {
         XCTAssertEqual(newCourseArray[0].grade, testingCourse.grade)
         
         
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }
