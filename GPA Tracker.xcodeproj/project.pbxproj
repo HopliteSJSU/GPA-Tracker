@@ -23,6 +23,7 @@
 		969C343A2252DB150003B21E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C34392252DB150003B21E /* Course.swift */; };
 		96B7F43A226D886900301667 /* CurrentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7F439226D886900301667 /* CurrentData.swift */; };
 		96C6BA322272481C00ABBFF4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C6BA312272481C00ABBFF4 /* SettingsViewController.swift */; };
+		96DC0B522278C73300D99D4B /* SettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC0B512278C73300D99D4B /* SettingsContainer.swift */; };
 		B69D36040BFE23CCD026B23A /* Pods_GPA_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B95C7797A83957736B80CB2 /* Pods_GPA_TrackerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		969C34392252DB150003B21E /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		96B7F439226D886900301667 /* CurrentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentData.swift; sourceTree = "<group>"; };
 		96C6BA312272481C00ABBFF4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "GPA Tracker/Controller/SettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		96DC0B512278C73300D99D4B /* SettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsContainer.swift; path = "GPA Tracker/Controller/SettingsContainer.swift"; sourceTree = SOURCE_ROOT; };
 		9C3E32470744BEF847BB4DF8 /* Pods-GPA Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPA Tracker/Pods-GPA Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		AAF299985BE57DD2FCABA8FA /* Pods_GPA_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD966BA8F333E9FBDDB006AC /* Pods-GPA TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA TrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPA TrackerTests/Pods-GPA TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				9681138822711AE800F29D9D /* CustomCell.swift */,
 				6707978C224B4D83001DA286 /* TableView.swift */,
 				96C6BA312272481C00ABBFF4 /* SettingsViewController.swift */,
+				96DC0B512278C73300D99D4B /* SettingsContainer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96489358226D7E5F00D43178 /* OverallGPA.swift in Sources */,
+				96DC0B522278C73300D99D4B /* SettingsContainer.swift in Sources */,
 				96B7F43A226D886900301667 /* CurrentData.swift in Sources */,
 				9648935A226D7E7300D43178 /* tempSemester.swift in Sources */,
 				96C6BA322272481C00ABBFF4 /* SettingsViewController.swift in Sources */,
