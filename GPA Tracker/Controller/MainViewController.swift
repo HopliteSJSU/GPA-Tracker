@@ -74,7 +74,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func buttonClick(_ sender: UIButton) {
-        let semesView: SettingsViewController = SettingsViewController()
+        let semesView: SettingsContainer = SettingsContainer()
         self.present(semesView, animated: true, completion: nil)
         print("Clicked")
     }
