@@ -18,8 +18,6 @@
 		6707978D224B4D83001DA286 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707978C224B4D83001DA286 /* TableView.swift */; };
 		673A0941226289B70028F8E8 /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673A0940226289B70028F8E8 /* Semester.swift */; };
 		67FDAEA4222F537C0055E965 /* SemesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FDAEA3222F537C0055E965 /* SemesterView.swift */; };
-		96489358226D7E5F00D43178 /* OverallGPA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96489357226D7E5F00D43178 /* OverallGPA.swift */; };		
- 		9648935A226D7E7300D43178 /* tempSemester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96489359226D7E7300D43178 /* tempSemester.swift */; };
 		969C343A2252DB150003B21E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C34392252DB150003B21E /* Course.swift */; };
 		96B7F43A226D886900301667 /* CurrentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7F439226D886900301667 /* CurrentData.swift */; };
 		B69D36040BFE23CCD026B23A /* Pods_GPA_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B95C7797A83957736B80CB2 /* Pods_GPA_TrackerTests.framework */; };
@@ -59,8 +57,6 @@
 		5B95C7797A83957736B80CB2 /* Pods_GPA_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6707978C224B4D83001DA286 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = "GPA Tracker/Controller/TableView.swift"; sourceTree = SOURCE_ROOT; };
 		673A0940226289B70028F8E8 /* Semester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
-		96489357226D7E5F00D43178 /* OverallGPA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallGPA.swift; sourceTree = "<group>"; };		
- 		96489359226D7E7300D43178 /* tempSemester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempSemester.swift; sourceTree = "<group>"; };
 		67FDAEA3222F537C0055E965 /* SemesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SemesterView.swift; path = "GPA Tracker/SemesterView.swift"; sourceTree = SOURCE_ROOT; };
 		86C42B3B034FF6BDD35AC65F /* Pods_GPA_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		969C34392252DB150003B21E /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
