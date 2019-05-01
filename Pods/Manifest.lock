@@ -1,3 +1,20 @@
-PODFILE CHECKSUM: f5fb1a1be56b8bfc2bb7b6dda091ec38ee2abddd
+PODS:
+  - Disk (0.6.3)
+  - SnapKit (4.2.0)
 
-COCOAPODS: 1.5.3
+DEPENDENCIES:
+  - Disk (~> 0.6.3)
+  - SnapKit (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Disk
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Disk: 76cccb6fed1c27cd661bbdea7b117d887c2f72e5
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+
+PODFILE CHECKSUM: 0ebc9e2577ea9a8e01df28148c962acdeb5e6e36
+
+COCOAPODS: 1.6.1
