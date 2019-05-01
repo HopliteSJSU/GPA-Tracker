@@ -5,6 +5,7 @@
 //  Created by Jason Li on 3/4/19.
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
+
 import Foundation
 
 public class Course {
