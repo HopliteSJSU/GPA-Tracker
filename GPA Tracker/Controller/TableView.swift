@@ -25,6 +25,8 @@ class TableView :UITableView {
     var gradeLabel: UILabel!
     var addClassButton: UIButton!
     
+    //init(semester: Semester, )
+    
     override init(frame: CGRect = CGRect.zero, style: UITableView.Style = UITableView.Style.plain) {
         super.init(frame: CGRect.zero, style: UITableView.Style.plain)
         self.numberOfRows(inSection: 6)
@@ -64,7 +66,6 @@ class TableView :UITableView {
         
         classNameLabel.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(headerView)
-            make.right.equalTo(headerView).offset(-(weightLabelWidth + gradeLabelWidth))
         }
         
         weightLabel.snp.makeConstraints { (make) -> Void in
