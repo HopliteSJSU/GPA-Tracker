@@ -30,7 +30,7 @@ public class Semester {
     func addClass(newClass: Course){
         classes.append(newClass)
         
-    }//end of addclass
+    }
     
     func removeClass(theCourse: Course){
         let indexOfClass: Int = classes.firstIndex{$0 === theCourse}!
@@ -47,7 +47,6 @@ public class Semester {
             if(classes[index] === theCourse){
                i = index;
             }
-
         }
 
         if(i>=0){
@@ -58,32 +57,6 @@ public class Semester {
         
         }
         return 1
-        
-        
-        
-        
-        
-        //use indexOf()
-        //var index:int = 1
-       // classes.contain
-        
-        
-        
-//        func index(of theCourse: classes)->Index?{
-//            return firstIndex(of: classes)
-//        }
-//        classes.remove(at: index)
-        
-
-        //        for i in 0...classes.endIndex{
-        //            //I think this might be wrong
-        //            if theCourse === classes[i]{
-        //                classes.remove(at: i)
-        //                break
-        //            }
-        //            if i == classes.endIndex-1{
-        //                break
-        //            }
     }
     
     
@@ -93,4 +66,3 @@ public class Semester {
     }
     
 }
-
