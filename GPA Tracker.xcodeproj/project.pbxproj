@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01343975043BB76C3618F39A /* Pods_GPA_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF299985BE57DD2FCABA8FA /* Pods_GPA_Tracker.framework */; };
+		2259A6E4227ABF8200D8E5FD /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259A6E3227ABF8200D8E5FD /* Semester.swift */; };
 		22F09763220BDD0E009881F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F09762220BDD0E009881F8 /* AppDelegate.swift */; };
 		22F09765220BDD0E009881F8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F09764220BDD0E009881F8 /* MainViewController.swift */; };
 		22F0976A220BDD10009881F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F09769220BDD10009881F8 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		09109C3BDF65AFC3FC69C9A4 /* Pods-GPA Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPA Tracker/Pods-GPA Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		2259A6E3227ABF8200D8E5FD /* Semester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
 		22F0975F220BDD0E009881F8 /* GPA Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GPA Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F09762220BDD0E009881F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22F09764220BDD0E009881F8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		22F09790220BDDD6009881F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2259A6E3227ABF8200D8E5FD /* Semester.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -416,7 +419,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GPA Tracker/Pods-GPA Tracker-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-GPA Tracker/Pods-GPA Tracker-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -427,7 +430,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GPA Tracker/Pods-GPA Tracker-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GPA Tracker/Pods-GPA Tracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -438,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96489358226D7E5F00D43178 /* OverallGPA.swift in Sources */,
+				2259A6E4227ABF8200D8E5FD /* Semester.swift in Sources */,
 				96B7F43A226D886900301667 /* CurrentData.swift in Sources */,
 				9648935A226D7E7300D43178 /* tempSemester.swift in Sources */,
 				67FDAEA4222F537C0055E965 /* SemesterView.swift in Sources */,
@@ -613,6 +617,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = "GPA Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -631,6 +636,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = "GPA Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
