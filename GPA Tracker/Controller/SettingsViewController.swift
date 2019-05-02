@@ -40,6 +40,7 @@ class SettingsViewController: QuickTableViewController {
         navBarController = UINavigationController(rootViewController: SettingsViewController())
         // setupDoneButton()
         navBarConfig()
+        print(CurrentData.shared.getOverall())
     }
     
     
@@ -50,6 +51,7 @@ class SettingsViewController: QuickTableViewController {
 
     private func clearData (_ sender: Row) {
         // Clearing all data
+        CurrentData.shared.clear()
         print("Clear Data")
     }
     
