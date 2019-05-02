@@ -23,14 +23,16 @@ class SemesterView: UIView, UITableViewDelegate, UITableViewDataSource {
     var semesterTitle: UITextField!
     var semesterGPA: UILabel!
     var tableOfClasses: UITableView!
+    var semester: Semester!
     
     private var courses = ["CS 147", "CS 149", "MATH 123", "FR 101"]
     let cellReuseIdentifier = "cell"
     
     
-    
-    public override init(frame: CGRect = CGRect.zero) {
+    public init(semester: Semester, frame: CGRect = CGRect.zero) {
         super.init(frame: CGRect.zero)
+        
+        self.semester = semester
         
         self.backgroundColor = .white
         self.layer.cornerRadius = 30
@@ -43,13 +45,22 @@ class SemesterView: UIView, UITableViewDelegate, UITableViewDataSource {
         setupTableOfClasses()
         // Register the table view cell class and its reuse id
         self.tableOfClasses.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        // Register another type of cell
         tableOfClasses.delegate = self
         tableOfClasses.dataSource = self
     }
     
     func setupSemesterTitle() {
+        
         semesterTitle = UITextField()
-        semesterTitle.placeholder = "Title"
+        
+        if(semester.name == nil) {
+            semesterTitle.placeholder = "Title"
+        }
+        else {
+            semesterTitle.text = semester.name
+        }
+        
         semesterTitle.font = header1Font
         self.addSubview(semesterTitle)
         semesterTitle.snp.makeConstraints { (make) -> Void in
@@ -62,7 +73,16 @@ class SemesterView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func setupSemesterGPA() {
         semesterGPA = UILabel()
-        semesterGPA.text = "GPA: --"
+        
+        var gpaText = ""
+        if (semester.gpa == nil) {
+            gpaText = "GPA: --"
+        }
+        else {
+            gpaText = String(format: "GPA: %.1f", semester.gpa)
+        }
+        
+        semesterGPA.text = gpaText
         semesterGPA.textAlignment = .left
         semesterGPA.font = headler2Font
         self.addSubview(semesterGPA)
@@ -93,14 +113,8 @@ class SemesterView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.addSubview(tableOfClasses)
         tableOfClasses.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(self).inset(UIEdgeInsets(top: 107, left: 16, bottom: 20, right: 8))
-            /*make.left.equalTo(semester).offset(16)
-             make.right.equalTo(semester).offset(-8)
-             make.top.equalTo(semester).offset(107)
-             make.bottom.equalTo(semester).offset(-20)*/
         }
     }
-    
-
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
